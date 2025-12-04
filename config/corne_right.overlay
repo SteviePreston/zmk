@@ -1,9 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-&nice_view_spi {
-    cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
-};
-
 / {
     chosen {
         zmk,display = &nice_view;
