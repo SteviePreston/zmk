@@ -1,0 +1,33 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+&nice_view_spi {
+    cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
+};
+
+/ {
+    chosen {
+        zmk,display = &nice_view;
+    };
+
+    custom_widget_status {
+        compatible = "zmk,widget-status";
+        
+        // Right side widgets
+        widgets {
+            output_status {
+                compatible = "zmk,widget-output-status";
+                label = "BT:";
+            };
+            
+            battery_status {
+                compatible = "zmk,widget-battery-status";
+                label = "BAT:";
+            };
+            
+            wpm_status {
+                compatible = "zmk,widget-wpm-status";
+                label = "WPM:";
+            };
+        };
+    };
+};
