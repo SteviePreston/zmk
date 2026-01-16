@@ -1,6 +1,5 @@
 #INFO: This file generates the GitHub Actions matrix.
 include:
-  #INFO: Bluetooth Corne Max 
   - board: nice_nano
     shield: corne_left nice_view_adapter nice_view
     artifact-name: corne_max_left_zmk_studio
@@ -11,7 +10,6 @@ include:
     shield: corne_right nice_view_adapter nice_view
     artifact-name: corne_max_right
     
-  # #INFO: Bluetooth Ferris Sweep 
   - board: nice_nano
     shield: cradio_left
     artifact-name: ferris_left_zmk_studio 
