@@ -1,10 +1,11 @@
 # README.md 
-This is a repo which utilizes GitHub Actions to make the `.u2f` firmware for the Nice!nano V2 Microcontroller for the Corne custom keyboard.
+This is a repo which utilizes GitHub Actions to make the `.uf2` firmware for the bluetooth micro controller for the custom split keyboard.
 
 # Useful links
 - [KeyMaps GUI](https://nickcoutsos.github.io/keymap-editor)
 - [ZMK Documentation](https://zmk.dev/docs)
 - [ZMK Studio](https://zmk.studio)
+- [Homerow Mods](https://callistaenterprise.se/blogg/teknik/2025/01/10/homerow-mods/)
 
 # How to pair via bluetooth
 1. Check for a free bluetooth profile.
