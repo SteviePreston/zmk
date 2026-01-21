@@ -3,15 +3,47 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        /*
+         * Home Row Mods (HRM) - Custom hold-tap behavior
+         *
+         * tapping-term-ms (280): Time in ms before a hold is triggered.
+         *   Higher = easier to tap, harder to hold. Start here and adjust.
+         *
+         * quick-tap-ms (175): If you tap the key again within this time,
+         *   it will always be a tap, never a hold. Enables fast repeated keys.
+         *
+         * require-prior-idle-ms (150): Won't trigger a hold unless your
+         *   fingers have been idle for this long. Prevents accidental holds
+         *   during fast typing (e.g., "the" won't trigger Ctrl).
+         *
+         * flavor "balanced": Hold triggers on key-up if another key was
+         *   pressed, or on timeout. Good balance between tap and hold.
+         *
+         * hold-trigger-on-release: Waits for key release before deciding.
+         *   Helps with "rolling" from mod to key (e.g., quick F→J for Shift+J).
+         */
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+            hold-trigger-on-release;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         layer_0 {
             bindings = <
-&mt ESCAPE Q        &kp W           &kp E               &kp R             &kp T        &kp Y      &kp U              &kp I                &kp O            &mt BACKSPACE P
-&mt LEFT_COMMAND A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G        &kp H      &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L  &mt RCMD SEMICOLON
-&kp Z               &kp X           &kp C               &kp V             &kp B        &kp N      &kp M              &kp COMMA            &kp DOT          &kp FSLH
-                                                        &mo 1             &kp SPACE    &kp ENTER  &mo 2
+&mt ESCAPE Q      &kp W         &kp E              &kp R            &kp T        &kp Y      &kp U             &kp I               &kp O           &mt BACKSPACE P
+&hm LEFT_COMMAND A  &hm LEFT_ALT S  &hm LEFT_CONTROL D  &hm LEFT_SHIFT F  &kp G        &kp H      &hm RIGHT_SHIFT J  &hm RIGHT_CONTROL K  &hm RIGHT_ALT L  &hm RCMD SEMICOLON
+&kp Z             &kp X         &kp C              &kp V            &kp B        &kp N      &kp M             &kp COMMA           &kp DOT         &kp FSLH
+                                                   &mo 1            &kp SPACE    &kp ENTER  &mo 2
             >;
         };
 
