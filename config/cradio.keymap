@@ -23,6 +23,7 @@
          * hold-trigger-on-release: Waits for key release before deciding.
          *   Helps with "rolling" from mod to key (e.g., quick F→J for Shift+J).
          */
+
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -31,6 +32,7 @@
             require-prior-idle-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
+
             hold-trigger-on-release;
         };
     };
@@ -40,28 +42,28 @@
 
         layer_0 {
             bindings = <
-&mt ESCAPE Q      &kp W         &kp E              &kp R            &kp T        &kp Y      &kp U             &kp I               &kp O           &mt BACKSPACE P
+&hm ESCAPE Q        &kp W           &kp E               &kp R             &kp T        &kp Y      &kp U              &kp I                &kp O            &hm BACKSPACE P
 &hm LEFT_COMMAND A  &hm LEFT_ALT S  &hm LEFT_CONTROL D  &hm LEFT_SHIFT F  &kp G        &kp H      &hm RIGHT_SHIFT J  &hm RIGHT_CONTROL K  &hm RIGHT_ALT L  &hm RCMD SEMICOLON
-&kp Z             &kp X         &kp C              &kp V            &kp B        &kp N      &kp M             &kp COMMA           &kp DOT         &kp FSLH
-                                                   &mo 1            &kp SPACE    &kp ENTER  &mo 2
+&kp Z               &kp X           &kp C               &kp V             &kp B        &kp N      &kp M              &kp COMMA            &kp DOT          &kp FSLH
+                                                        &mo 1             &kp SPACE    &kp ENTER  &mo 2
             >;
         };
 
         layer_1 {
             bindings = <
-&kp TAB    &kp GRAVE   &kp BACKSLASH  &kp HASH       &kp MINUS               &kp EQUAL              &kp DOLLAR       &kp PIPE        &kp SINGLE_QUOTE  &kp BACKSPACE
-&kp LCTRL  &kp INSERT  &kp HOME       &kp PAGE_UP    &kp LBKT                &kp RBKT               &kp C_VOLUME_UP  &studio_unlock  &bt BT_NXT        &kp RCTRL
-&kp LSHFT  &kp DELETE  &kp END        &kp PAGE_DOWN  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp C_VOL_DN     &soft_off       &bt BT_PRV        &kp RSHFT
-                                      &mo 1          &kp SPACE               &kp ENTER              &mo 2
-            >;
-        };
-
-        layer_2 {
-            bindings = <
 &kp N1     &kp N2        &kp N3        &kp N4        &kp N5          &kp N6          &kp N7          &kp N8        &kp N9           &kp N0
 &kp LALT   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp SINGLE_QUOTE
 &kp LSHFT  &kp LCTRL     &kp LGUI      &kp ESCAPE    &kp CAPS        &kp F1          &kp F2          &kp F3        &kp F4           &kp F5
                                        &mo 1         &kp SPACE       &kp ENTER       &mo 2
+            >;
+        };
+
+        layer_ {
+            bindings = <
+&kp TAB    &kp GRAVE   &kp BACKSLASH  &kp HASH       &kp MINUS               &kp EQUAL              &kp DOLLAR       &kp PIPE        &kp SINGLE_QUOTE  &kp BACKSPACE
+&kp LCTRL  &kp INSERT  &kp HOME       &kp PAGE_UP    &kp LBKT                &kp RBKT               &kp C_VOLUME_UP  &studio_unlock  &bt BT_NXT        &kp RCTRL
+&kp LSHFT  &kp DELETE  &kp END        &kp PAGE_DOWN  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp C_VOL_DN     &soft_off       &bt BT_PRV        &kp RSHFT
+                                      &mo 1          &kp SPACE               &kp ENTER              &mo 2
             >;
         };
     };
