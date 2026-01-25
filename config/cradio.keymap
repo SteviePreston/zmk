@@ -19,9 +19,6 @@
          *
          * flavor "balanced": Hold triggers on key-up if another key was
          *   pressed, or on timeout. Good balance between tap and hold.
-         *
-         * hold-trigger-on-release: Waits for key release before deciding.
-         *   Helps with "rolling" from mod to key (e.g., quick F→J for Shift+J).
          */
 
         hm: homerow_mods {
@@ -33,7 +30,6 @@
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
 
-            hold-trigger-on-release;
         };
     };
 
