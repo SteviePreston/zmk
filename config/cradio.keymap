@@ -42,9 +42,9 @@
 
         layer_0 {
             bindings = <
-&hm ESCAPE Q        &kp W           &kp E               &kp R             &kp T        &kp Y      &kp U              &kp I                &kp O            &hm BACKSPACE P
-&hm LEFT_COMMAND A  &hm LEFT_ALT S  &hm LEFT_CONTROL D  &hm LEFT_SHIFT F  &kp G        &kp H      &hm RIGHT_SHIFT J  &hm RIGHT_CONTROL K  &hm RIGHT_ALT L  &hm RCMD SEMICOLON
-&kp Z               &kp X           &kp C               &kp V             &kp B        &kp N      &kp M              &kp COMMA            &kp DOT          &kp FSLH
+&hm ESCAPE Q        &kp W           &kp E               &kp R             &kp T        &kp Y      &kp U              &kp I                    &kp O                 &hm BACKSPACE P
+&kp A               &kp S           &kp D               &kp F             &kp G        &kp H      &kp J              &kp K                    &kp L                 &kp SEMI
+&hm LEFT_COMMAND Z  &hm LEFT_ALT X  &hm LEFT_CONTROL C  &hm LEFT_SHIFT V  &kp B        &kp N      &hm RIGHT_SHIFT M  &hm RIGHT_CONTROL COMMA  &hm RIGHT_ALT PERIOD  &hm RIGHT_GUI SLASH
                                                         &mo 1             &kp SPACE    &kp ENTER  &mo 2
             >;
         };
@@ -58,7 +58,7 @@
             >;
         };
 
-        layer_ {
+        layer_2 {
             bindings = <
 &kp TAB    &kp GRAVE   &kp BACKSLASH  &kp HASH       &kp MINUS               &kp EQUAL              &kp DOLLAR       &kp PIPE        &kp SINGLE_QUOTE  &kp BACKSPACE
 &kp LCTRL  &kp INSERT  &kp HOME       &kp PAGE_UP    &kp LBKT                &kp RBKT               &kp C_VOLUME_UP  &studio_unlock  &bt BT_NXT        &kp RCTRL
