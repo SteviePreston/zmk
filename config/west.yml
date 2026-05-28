@@ -9,10 +9,10 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      # Pinned to the last pre-Zephyr-4.1 commit. ZMK main moved to Zephyr 4.1 / HWMv2
-      # in c06fa48, which is incompatible with MechboardsLTD/zmk-module's HWMv1 corne_min
-      # board and breaks per-board shield overlays for nice_view_adapter on BOARD=nice_nano.
-      revision: abb64ba316c29caddc49727ca2cac2f0ed5970c7
+      # Pinned to the v0.3 release (Zephyr 3.5 / LVGL 8). Matches beekeeb's known-good
+      # prospector reference config. ZMK main (Zephyr 4.1 / HWMv2) is incompatible with
+      # MechboardsLTD/zmk-module's HWMv1 corne_min board.
+      revision: v0.3
       import: app/west.yml
     - name: corne-min-rgbled
       url: https://github.com/MechboardsLTD/zmk-module
