@@ -23,12 +23,10 @@ config BT_MAX_CONN
 config BT_MAX_PAIRED
     default 3
 
-# The prospector module's widget code (battery_bar, layer_roller) needs these
-# LVGL features. Carrefinho's Kconfig.defconfig tries to select them via
-# ZMK_DISPLAY_STATUS_SCREEN_CUSTOM, but the choice override isn't taking
-# effect in this build — force them on directly.
-config ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
-    default y
+# The prospector module's widget source files (battery_bar.c, layer_roller.c)
+# need these LVGL features. Carrefinho's Kconfig.defconfig tries to select them
+# via ZMK_DISPLAY_STATUS_SCREEN_CUSTOM, but the select chain isn't propagating
+# here — force the LV_USE_* configs directly.
 config LV_USE_BAR
     default y
 config LV_USE_FLEX
