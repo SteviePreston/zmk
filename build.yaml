@@ -30,10 +30,10 @@ include:
     artifact-name: corne_min_right
 
   # Prospector dongle for Corne Min (central) + settings reset
+  # No ZMK Studio on the dongle — it has no keys, and Studio's status-screen
+  # config blocks the prospector module's LVGL widget selects.
   - board: seeeduino_xiao_ble
     shield: corne_min_dongle prospector_adapter
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: prospector_for_corne_min
   - board: seeeduino_xiao_ble
     shield: settings_reset
