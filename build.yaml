@@ -30,10 +30,13 @@ include:
     artifact-name: corne_min_right
 
   # Prospector dongle for Corne Min (central) + settings reset
-  # No ZMK Studio on the dongle — it has no keys, and Studio's status-screen
-  # config blocks the prospector module's LVGL widget selects.
+  # The shield-name prefix match loads corne.conf for this build, which forces
+  # ZMK_DISPLAY_STATUS_SCREEN_BUILT_IN=y. Override with cmake-args so the dongle
+  # uses carrefinho's custom status screen (the choice-default override in the
+  # prospector module's Kconfig.defconfig doesn't win against an explicit conf).
   - board: seeeduino_xiao_ble
     shield: corne_min_dongle prospector_adapter
+    cmake-args: -DCONFIG_ZMK_DISPLAY_STATUS_SCREEN_BUILT_IN=n -DCONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM=y
     artifact-name: prospector_for_corne_min
   - board: seeeduino_xiao_ble
     shield: settings_reset
