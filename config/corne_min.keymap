@@ -12,11 +12,6 @@
 #define LOWER   1
 #define RAISE   2
 
-// nice_view connected with control pin 8 together with LEDs
-&nice_view_spi {
-    cs-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;
-};
-
 / {
     keymap {
         compatible = "zmk,keymap";

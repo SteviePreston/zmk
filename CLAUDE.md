@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a ZMK firmware configuration repository for split keyboards (Corne and Ferris Sweep/Cradio) using Nice!Nano v2 microcontrollers. Firmware is built via GitHub Actions—there is no local build process.
+This is a ZMK firmware configuration repository for split keyboards (Corne, Corne Min, and Ferris Sweep/Cradio). The Corne and Ferris use Nice!Nano v2 microcontrollers; the Corne Min uses its own boards from `MechboardsLTD/zmk-module`, and can optionally be driven by a Seeeduino Xiao BLE acting as a Prospector dongle. Firmware is built via GitHub Actions—there is no local build process.
 
 ## Build Process
 
@@ -21,6 +21,8 @@ The build matrix is defined in `build.yaml` and specifies:
   - `*.conf` - ZMK settings (display, sleep, Bluetooth power)
   - `*.keymap` - Key bindings and layers
   - `west.yml` - ZMK dependency manifest
+- `boards/shields/` - Custom shield definitions
+  - `corne_min_dongle/` - Prospector dongle shield for the Corne Min (Kconfig + overlay)
 - `build.yaml` - GitHub Actions build matrix
 - `zephyr/module.yml` - Zephyr module definition
 
@@ -29,7 +31,15 @@ The build matrix is defined in `build.yaml` and specifies:
 **Corne** (`corne.conf`, `corne.keymap`):
 - Has Nice!View display (requires `cs-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>` in keymap for mechboards.uk PCB)
 - RGB disabled, display widgets enabled (battery %, output status, layer)
-- 3 layers with conditional layer support
+- 3 layers (default, lower, raise)
+
+**Corne Min** (`corne_min.conf`, `corne_min.keymap`):
+- Uses `corne_min_left` / `corne_min_right` boards from the `MechboardsLTD/zmk-module:corne-min` branch with the `rgbled_adapter` shield
+- No display; same 42-key layout and keymap as the standard Corne (copied directly)
+- Can be driven by a Prospector dongle: `seeeduino_xiao_ble` board with `corne_min_dongle prospector_adapter` shields (central), and halves rebuilt as peripherals via `-DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n`
+- Prospector module pulled from `MechboardsLTD/zmk-module:prospector` via `west.yml`
+- Brightness is pinned (`CONFIG_PROSPECTOR_FIXED_BRIGHTNESS=80`, ALS off) in `corne_min.conf`
+- Includes a `settings_reset` build for both the prospector and the left half
 
 **Ferris Sweep** (`cradio.conf`, `cradio.keymap`):
 - No display
