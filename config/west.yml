@@ -17,8 +17,8 @@ manifest:
     - name: corne-min-board
       url: https://github.com/MechboardsLTD/zmk-module
       revision: corne-min
-    - name: prospector-module
-      url: https://github.com/MechboardsLTD/zmk-module
-      revision: prospector
+    - name: prospector-zmk-module
+      url: https://github.com/carrefinho/prospector-zmk-module
+      revision: core/zephyr-4-1
   self:
     path: config

@@ -37,7 +37,7 @@ The build matrix is defined in `build.yaml` and specifies:
 - Uses `corne_min_left` / `corne_min_right` boards from the `MechboardsLTD/zmk-module:corne-min` branch with the `rgbled_adapter` shield
 - No display; same 42-key layout and keymap as the standard Corne (copied directly)
 - Can be driven by a Prospector dongle: `seeeduino_xiao_ble` board with `corne_min_dongle prospector_adapter` shields (central), and halves rebuilt as peripherals via `-DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n`
-- Prospector module pulled from `MechboardsLTD/zmk-module:prospector` via `west.yml`
+- Prospector module pulled from `carrefinho/prospector-zmk-module:core/zephyr-4-1` via `west.yml` — this branch matches ZMK main's Zephyr 4.1 / LVGL 9 (the default `main` branch still references the LVGL-8-only `LV_DISP_DEF_REFR_PERIOD` symbol and breaks every target). Setup is modeled on beekeeb's reference config.
 - Brightness is pinned (`CONFIG_PROSPECTOR_FIXED_BRIGHTNESS=80`, ALS off) in `corne_min.conf`
 - Includes a `settings_reset` build for both the prospector and the left half
 
