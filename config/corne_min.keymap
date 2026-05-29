@@ -17,7 +17,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Base";
+            display-name = "/Letters";
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp SINGLE_QUOTE
@@ -27,7 +27,7 @@
         };
 
         lower_layer {
-            display-name = "Numbers";
+            display-name = "/Numbers";
             bindings = <
 &kp ESC    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5          &kp NUMBER_6  &kp N7    &kp N8    &kp NUMBER_9  &kp N0          &kp BACKSPACE
 &kp LCTRL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT      &kp DOWN  &kp UP    &kp RIGHT     &studio_unlock  &soft_off
@@ -37,7 +37,7 @@
         };
 
         raise_layer {
-            display-name = "Symbols";
+            display-name = "/Symbols";
             bindings = <
 &bt BT_CLR  &kp GRAVE          &kp BACKSLASH  &kp POUND  &kp DOLLAR     &kp MINUS               &kp EQUAL              &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS   &kp BACKSPACE
 &kp LCTRL   &kp C_VOLUME_UP    &kp INSERT     &kp HOME   &kp PAGE_UP    &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS  &kp RIGHT_CONTROL
