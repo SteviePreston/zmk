@@ -32,6 +32,8 @@ The build matrix is defined in `build.yaml` and specifies:
 - Has Nice!View display (requires `cs-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>` in keymap for mechboards.uk PCB)
 - RGB disabled, display widgets enabled (battery %, output status, layer)
 - 3 layers (default, lower, raise)
+- Driven by a Nice!Nano dongle: `nice_nano` + the `dongle_corne` shield is the split central (mock kscan + a matrix transform copied from ZMK's corne `default_transform`), and both halves are rebuilt as peripherals with `-DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n`. The halves keep their stock transforms (the right half's `col-offset = <6>` is what puts its keys in the right half of the 42-key map), so no position remapping is needed on the dongle. ZMK Studio runs on the dongle, since only the central holds the keymap.
+- The dongle shield is named `dongle_corne`, **not** `corne_dongle`: ZMK derives candidate `.conf`/`.keymap` names by stripping trailing `_`-separated pieces off the shield name, so a `corne_*` shield also matches `corne.keymap` — which is checked *before* the shield's own name and overrides `&nice_view_spi`, a label that only exists in nice_view builds. Any new Corne-adjacent shield needs a name that does not reduce to `corne`.
 
 **Corne Min** (`corne_min.conf`, `corne_min.keymap`):
 - Uses `corne_min_left` / `corne_min_right` boards from the `MechboardsLTD/zmk-module:corne-min` branch with the `rgbled_adapter` shield

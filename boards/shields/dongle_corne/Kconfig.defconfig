@@ -1,4 +1,10 @@
-if SHIELD_CORNE_DONGLE
+# The shield is `dongle_corne`, not `corne_dongle`, on purpose: ZMK builds the
+# list of candidate .conf/.keymap names by stripping trailing `_`-separated
+# pieces off the shield name, so `corne_dongle` would also match `corne.*` in
+# the config dir — and `config/corne.keymap` (checked before the shield's own
+# name) overrides `&nice_view_spi`, a label that only exists when the nice_view
+# shield is in the build. `dongle_corne` only ever matches `dongle*`.
+if SHIELD_DONGLE_CORNE
 
 # Max 16 characters in keyboard name
 config ZMK_KEYBOARD_NAME

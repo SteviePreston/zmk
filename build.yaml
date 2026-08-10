@@ -1,17 +1,16 @@
 #INFO: This file generates the GitHub Actions matrix.
 include:
   # Corne — nice_nano BT dongle (central) + two Nice!View halves as peripherals.
-  # The dongle has no matrix of its own; the corne_dongle shield supplies a mock
-  # kscan + matrix transform. ZMK Studio runs on the dongle (the central).
-  # -DCONFIG_ZMK_DISPLAY=n keeps the bare dongle from picking up corne.conf's
-  # display settings (loaded via the corne_dongle -> corne .conf name match).
-  # The name is forced here (not just in Kconfig.defconfig) because corne.conf's
-  # explicit CONFIG_ZMK_KEYBOARD_NAME would otherwise override the shield default;
-  # the '"..."' quoting keeps the spaces intact through the shell.
+  # The dongle has no matrix of its own; the dongle_corne shield supplies a mock
+  # kscan + matrix transform matching ZMK's corne default_transform, so the
+  # halves' own transforms (right has col-offset = 6) land on the right keys.
+  # ZMK Studio runs on the dongle (the central). Settings come from
+  # config/dongle_corne.conf and the shield's Kconfig.defconfig — corne.conf and
+  # corne.keymap deliberately do not match this shield name.
   - board: nice_nano
-    shield: corne_dongle
+    shield: dongle_corne
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n -DCONFIG_ZMK_DISPLAY=n -DCONFIG_ZMK_KEYBOARD_NAME='"Ste Corne BT"'
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: corne_bt_dongle
 
   - board: nice_nano

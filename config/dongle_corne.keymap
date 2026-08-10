@@ -12,8 +12,9 @@
 #define LOWER   1
 #define RAISE   2
 
-// This is the dongle (split central) — no Nice!View, so no display SPI node here.
-// Displays live on the two peripheral halves (see corne.keymap).
+// This is the dongle (split central) — no Nice!View, so no display SPI node
+// here. Displays live on the two peripheral halves (see corne.keymap); keep the
+// bindings below in sync with that file.
 
 / {
     keymap {
